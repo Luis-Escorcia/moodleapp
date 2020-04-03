@@ -1,14 +1,19 @@
-$core-dark-text-color: $white !default;
-$core-dark-text-secondary-color: $gray-light !default;
-$core-dark-link-color: $blue-light !default;
+$core-dark-text-color: $black !default;
+$core-dark-text-secondary-color: darken($gray, 40%) !default;
+$core-dark-link-color: $blue-dark !default;
 
-$core-dark-item-bg-color: $gray-darker !default;
-$core-dark-item-divider-bg-color: $gray-dark !default;
-$core-dark-background-color: $black !default;
+$core-dark-item-bg-color: $gray-light !default;
+$core-dark-item-divider-bg-color: $gray-light !default;
+$core-dark-background-color: $white !default;
+
+
+$open-color:      #4776BD;
+$open-color-light:      mix(#4776BD, white, 20%) !default;
+$open-color-dark:            darken($open-color, 10%) !default;
 
 // Login.
-$core-dark-login-page-background-color: radial-gradient(white, $gray-dark) !default;
-$core-dark-login-box-background-color: $black !default;
+$core-dark-login-page-background-color: $open-color-light;
+$core-dark-login-box-background-color: $white !default;
 $core-dark-login-box-background-border: $core-login-box-background-border !default;
 $core-dark-login-box-text-color: $core-dark-text-color !default;
 $core-dark-login-item-inner-background-color: $core-dark-login-box-background-color !default;
@@ -25,7 +30,7 @@ ion-app.app-root {
         color: $core-color;
       }
       &.activated {
-        background-color: $black;
+        background-color: $white;
       }
     }
 
