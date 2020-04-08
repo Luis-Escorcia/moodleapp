@@ -39,6 +39,7 @@ ion-app.app-root .core-tabs-bar {
         &[aria-selected=true] {
             color: $core-top-tabs-color-active !important;
             border-bottom-color: $core-top-tabs-border-active !important;
+            //Open Custom
             border-bottom-width: 4px !important;
         }
 
