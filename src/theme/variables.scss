@@ -117,18 +117,18 @@ $colors: (
 );
 
 $colors-dark: (
-  primary:    $primary-dark,
-  secondary:  $secondary-dark,
-  danger:     $danger-dark,
-  light:      $dark,
+  primary:    $primary,
+  secondary:  $secondary,
+  danger:     $danger,
+  light:      $light,
   gray:       $color-gray,
-  dark:       $light,
-  warning:    $warning-dark,
-  success:    $success-dark,
-  info:       $info-dark,
+  dark:       $dark,
+  warning:    $warning,
+  success:    $success,
+  info:       $info,
   inverted: (
-    base: $inverted-base-dark,
-    contrast: $inverted-contrast-dark
+    base: $inverted-base,
+    contrast: $inverted-contrast
   )
 );
 
