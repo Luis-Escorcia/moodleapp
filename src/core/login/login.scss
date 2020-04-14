@@ -72,13 +72,14 @@ ion-app.app-root page-core-login-site {
         margin-bottom: 20px;
     }
 
-    //Custom Style for buttons
+    //Open LMS Custom Style for buttons
     .button-md.button-default-md, .button-ios.button-default-ios {
         border-radius: 20px;
     }
 
     .core-login-need-help.item.item-block.item-md{
         border-radius: 20px;
+        background-color: $gray;
     }
 
 
