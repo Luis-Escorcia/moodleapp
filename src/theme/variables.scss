@@ -32,9 +32,7 @@ $yellow:          #fbad1a; // Accent (never text).
 $purple:          #8e24aa; // Accent (never text).
 
 //Custom Color.
-$open-color:      #4776BD; 
-$open-color-light:      mix(#4776BD, white, 20%) !default;
-$open-color-dark:            darken($open-color, 10%) !default;
+$open-color:      #4776BD;
 
 // Branded apps customization
 // --------------------------------------------------
@@ -638,7 +636,7 @@ $core-dd-question-colors: $white, $blue-light, #DCDCDC, #D8BFD8, #87CEFA, #DAA52
 
   @at-root body.scheme-auto {
     #{$root} {
-      @media (prefers-color-scheme: dark) {
+      @media (prefers-color-scheme: light) {
         @content;
       }
     }
