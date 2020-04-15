@@ -127,8 +127,8 @@ $colors-dark: (
   success:    $success-dark,
   info:       $info-dark,
   inverted: (
-    base: $inverted-base,
-    contrast: $inverted-contrast
+    base: $inverted-base-dark,
+    contrast: $inverted-contrast-dark
   )
 );
 
@@ -636,7 +636,7 @@ $core-dd-question-colors: $white, $blue-light, #DCDCDC, #D8BFD8, #87CEFA, #DAA52
 
   @at-root body.scheme-auto {
     #{$root} {
-      @media (prefers-color-scheme: dark) {
+      @media (prefers-color-scheme: light) {
         @content;
       }
     }

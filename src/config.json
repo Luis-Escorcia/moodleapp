@@ -1,7 +1,7 @@
 {
     "app_id": "com.openlms.umindanao",
-    "appname": "UMindanao Mobile",
-    "desktopappname": "UMindanao Desktop",
+    "appname": "UM Virtual Classroom",
+    "desktopappname": "UM Virtual Classroom Desktop",
     "versioncode": 3820,
     "versionname": "3.8.2",
     "cache_update_frequency_usually": 420000,
@@ -76,7 +76,7 @@
         75.89,
         93.75
     ],
-    "customurlscheme": "UMindanaomobile",
+    "customurlscheme": "UMVirtualClassroom",
     "siteurl": "https://umindanao.mrooms.net",
     "sitename": "",
     "multisitesdisplay": "",
