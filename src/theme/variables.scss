@@ -31,6 +31,9 @@ $orange:          #f98012; // Accent (never text).
 $yellow:          #fbad1a; // Accent (never text).
 $purple:          #8e24aa; // Accent (never text).
 
+//Open LMS Custom 
+$open-color: #9E181B;
+
 // Branded apps customization
 // --------------------------------------------------
 @import "bmma";
@@ -52,7 +55,7 @@ $orange-light:    lighten($orange, 10%) !default;
 $yellow-light:    mix($yellow, white, 20%) !default;
 $yellow-dark:     mix($yellow, black, 40%) !default;
 
-$core-color:          $orange !default;
+$core-color:          $open-color !default;
 $core-color-light:    lighten($core-color, 10%) !default;
 $core-color-dark:     darken($core-color, 10%) !default;
 
@@ -305,7 +308,7 @@ $item-media-height: 32px !default;
 $core-top-tabs-background: $white !default;
 $core-top-tabs-color: $gray-dark !default;
 $core-top-tabs-border: $gray !default;
-$core-top-tabs-color-active: $core-color !default;
+$core-top-tabs-color-active: $black !default;
 $core-top-tabs-border-active: $core-top-tabs-color-active !default;
 
 $core-splitview-selected: $core-color-light !default;
@@ -633,7 +636,7 @@ $core-dd-question-colors: $white, $blue-light, #DCDCDC, #D8BFD8, #87CEFA, #DAA52
 
   @at-root body.scheme-auto {
     #{$root} {
-      @media (prefers-color-scheme: dark) {
+      @media (prefers-color-scheme: light) {
         @content;
       }
     }
