@@ -74,7 +74,6 @@ ion-app.app-root page-core-login-site {
 
 
     //Custom Style for buttons
-    
     .button-md.button-default-md, .button-ios.button-default-ios {
         border-radius: 20px;
         color: black;
@@ -83,10 +82,11 @@ ion-app.app-root page-core-login-site {
     .core-login-form .button-md.button-default-md, .button-ios.button-default-ios {
         background-color: #E9BB49;
     }
+
     //forget button
-    /*.core-login-forgotten-password .button-md.button-default-md, .button-ios.button-default-ios{
+    .core-login-forgotten-password .button-md.button-default-md, .button-ios.button-default-ios{
         
-    }*/
+    }
 
     .core-sitename, .core-siteurl {
         display: none;

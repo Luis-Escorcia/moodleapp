@@ -31,7 +31,7 @@ $orange:          #f98012; // Accent (never text).
 $yellow:          #fbad1a; // Accent (never text).
 $purple:          #8e24aa; // Accent (never text).
 
-//Custom
+//Open LMS Custom
 $open-color: #BA0611;
 
 // Branded apps customization
@@ -117,15 +117,15 @@ $colors: (
 );
 
 $colors-dark: (
-  primary:    $primary,
-  secondary:  $secondary,
-  danger:     $danger,
-  light:      $light,
+  primary:    $primary-dark,
+  secondary:  $secondary-dark,
+  danger:     $danger-dark,
+  light:      $dark,
   gray:       $color-gray,
-  dark:       $dark,
-  warning:    $warning,
-  success:    $success,
-  info:       $info,
+  dark:       $light,
+  warning:    $warning-dark,
+  success:    $success-dark,
+  info:       $info-dark,
   inverted: (
     base: $inverted-base,
     contrast: $inverted-contrast
@@ -636,7 +636,7 @@ $core-dd-question-colors: $white, $blue-light, #DCDCDC, #D8BFD8, #87CEFA, #DAA52
 
   @at-root body.scheme-auto {
     #{$root} {
-      @media (prefers-color-scheme: light) {
+      @media (prefers-color-scheme: dark) {
         @content;
       }
     }
