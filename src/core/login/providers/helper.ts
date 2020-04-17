@@ -66,7 +66,7 @@ export interface CoreLoginSSOData {
     /**
      * Other params added to the login url.
      */
-    ssoUrlParams?: {[name: string]: any};
+    ssoUrlParams?: { [name: string]: any };
 }
 
 /**
@@ -79,15 +79,15 @@ export class CoreLoginHelperProvider {
     protected logger;
     protected isSSOConfirmShown = false;
     protected isOpenEditAlertShown = false;
-    protected pageToLoad: {page: string, params: any, time: number}; // Page to load once main menu is opened.
+    protected pageToLoad: { page: string, params: any, time: number }; // Page to load once main menu is opened.
     waitingForBrowser = false;
 
     constructor(logger: CoreLoggerProvider, private sitesProvider: CoreSitesProvider, private domUtils: CoreDomUtilsProvider,
-            private wsProvider: CoreWSProvider, private translate: TranslateService, private textUtils: CoreTextUtilsProvider,
-            private eventsProvider: CoreEventsProvider, private appProvider: CoreAppProvider, private utils: CoreUtilsProvider,
-            private urlUtils: CoreUrlUtilsProvider, private configProvider: CoreConfigProvider, private platform: Platform,
-            private initDelegate: CoreInitDelegate, private sitePluginsProvider: CoreSitePluginsProvider,
-            private location: Location, private alertCtrl: AlertController, private courseProvider: CoreCourseProvider) {
+        private wsProvider: CoreWSProvider, private translate: TranslateService, private textUtils: CoreTextUtilsProvider,
+        private eventsProvider: CoreEventsProvider, private appProvider: CoreAppProvider, private utils: CoreUtilsProvider,
+        private urlUtils: CoreUrlUtilsProvider, private configProvider: CoreConfigProvider, private platform: Platform,
+        private initDelegate: CoreInitDelegate, private sitePluginsProvider: CoreSitePluginsProvider,
+        private location: Location, private alertCtrl: AlertController, private courseProvider: CoreCourseProvider) {
         this.logger = logger.getInstance('CoreLoginHelper');
 
         this.eventsProvider.on(CoreEventsProvider.MAIN_MENU_OPEN, () => {
@@ -186,7 +186,7 @@ export class CoreLoginHelperProvider {
             siteData = data;
 
             return this.handleSSOLoginAuthentication(siteData.siteUrl, siteData.token, siteData.privateToken,
-                    this.getOAuthIdFromParams(data.ssoUrlParams));
+                this.getOAuthIdFromParams(data.ssoUrlParams));
         }).then(() => {
             if (siteData.pageName) {
                 // State defined, go to that state instead of site initial page.
@@ -219,7 +219,7 @@ export class CoreLoginHelperProvider {
             return true;
         }).catch((error) => {
             return error.available == 1 || (typeof error.errorcode != 'undefined' && error.errorcode != 'invalidrecord' &&
-                    error.errorcode != '');
+                error.errorcode != '');
         });
     }
 
@@ -358,7 +358,7 @@ export class CoreLoginHelperProvider {
      * @return Object with the errors.
      */
     getErrorMessages(requiredMsg?: string, emailMsg?: string, patternMsg?: string, urlMsg?: string, minlengthMsg?: string,
-            maxlengthMsg?: string, minMsg?: string, maxMsg?: string): any {
+        maxlengthMsg?: string, minMsg?: string, maxMsg?: string): any {
         const errors: any = {};
 
         if (requiredMsg) {
@@ -418,7 +418,7 @@ export class CoreLoginHelperProvider {
      * @param params Params.
      * @return OAuth ID.
      */
-    getOAuthIdFromParams(params: {[name: string]: any}): number {
+    getOAuthIdFromParams(params: { [name: string]: any }): number {
         return params && typeof params.oauthsso != 'undefined' ? Number(params.oauthsso) : undefined;
     }
 
@@ -436,9 +436,9 @@ export class CoreLoginHelperProvider {
             }, () => {
                 // Cannot get config, try to get the site policy using auth_email_get_signup_settings.
                 return this.wsProvider.callAjax('auth_email_get_signup_settings', {}, { siteUrl: site.getURL() })
-                        .then((settings) => {
-                    return settings.sitepolicy ? settings.sitepolicy : Promise.reject(null);
-                });
+                    .then((settings) => {
+                        return settings.sitepolicy ? settings.sitepolicy : Promise.reject(null);
+                    });
             });
         });
     }
@@ -474,7 +474,7 @@ export class CoreLoginHelperProvider {
                 const urlParams = this.urlUtils.extractUrlParams(provider.url);
 
                 if (provider.url && (provider.url.indexOf(httpsUrl) != -1 || provider.url.indexOf(httpUrl) != -1) &&
-                        !this.isFeatureDisabled('NoDelegate_IdentityProvider_' + urlParams.id, siteConfig, disabledFeatures)) {
+                    !this.isFeatureDisabled('NoDelegate_IdentityProvider_' + urlParams.id, siteConfig, disabledFeatures)) {
                     validProviders.push(provider);
                 }
             });
@@ -537,13 +537,13 @@ export class CoreLoginHelperProvider {
                     // There are sites stored, open sites page first to be able to go back.
                     navCtrl.setRoot('CoreLoginSitesPage');
 
-                    return navCtrl.push(page, params, {animate: false});
+                    return navCtrl.push(page, params, { animate: false });
                 } else {
                     if (page != 'CoreLoginSitePage') {
                         // Open the new site page to be able to go back.
                         navCtrl.setRoot('CoreLoginSitePage');
 
-                        return navCtrl.push(page, params, {animate: false});
+                        return navCtrl.push(page, params, { animate: false });
                     } else {
                         // Just open the page as root.
                         return navCtrl.setRoot(page, params);
@@ -822,8 +822,8 @@ export class CoreLoginHelperProvider {
         } else {
             // Always open it in browser because the user might have the session stored in there.
             this.utils.openInBrowser(loginUrl);
-            if ((<any> navigator).app) {
-                (<any> navigator).app.exitApp();
+            if ((<any>navigator).app) {
+                (<any>navigator).app.exitApp();
             }
         }
 
@@ -841,7 +841,7 @@ export class CoreLoginHelperProvider {
      * @param pageParams Params of the state to go once authenticated.
      */
     openBrowserForSSOLogin(siteUrl: string, typeOfLogin: number, service?: string, launchUrl?: string, pageName?: string,
-            pageParams?: any): void {
+        pageParams?: any): void {
         const loginUrl = this.prepareForSSOLogin(siteUrl, service, launchUrl, pageName, pageParams);
 
         if (this.isSSOEmbeddedBrowser(typeOfLogin)) {
@@ -852,8 +852,8 @@ export class CoreLoginHelperProvider {
             this.utils.openInApp(loginUrl, options);
         } else {
             this.utils.openInBrowser(loginUrl);
-            if ((<any> navigator).app) {
-                (<any> navigator).app.exitApp();
+            if ((<any>navigator).app) {
+                (<any>navigator).app.exitApp();
             }
         }
     }
@@ -934,14 +934,14 @@ export class CoreLoginHelperProvider {
         }
 
         const rootNavCtrl = this.appProvider.getRootNavController(),
-        activePage = rootNavCtrl.getActive();
+            activePage = rootNavCtrl.getActive();
 
         // If current page is already change password, stop.
         if (activePage && activePage.component && activePage.component.name == 'CoreLoginChangePasswordPage') {
             return;
         }
 
-        rootNavCtrl.setRoot('CoreLoginChangePasswordPage', {siteId});
+        rootNavCtrl.setRoot('CoreLoginChangePasswordPage', { siteId });
     }
 
     /**
@@ -956,7 +956,7 @@ export class CoreLoginHelperProvider {
      * @return Login Url.
      */
     prepareForSSOLogin(siteUrl: string, service?: string, launchUrl?: string, pageName?: string, pageParams?: any,
-            urlParams?: {[name: string]: any}): string {
+        urlParams?: { [name: string]: any }): string {
 
         service = service || CoreConfigConstants.wsextservice;
         launchUrl = launchUrl || siteUrl + '/local/mobile/launch.php';
@@ -1111,14 +1111,14 @@ export class CoreLoginHelperProvider {
                             this.isSSOConfirmShown = true;
 
                             const confirmMessage = this.translate.instant('core.login.' +
-                                    (currentSite.isLoggedOut() ? 'loggedoutssodescription' : 'reconnectssodescription'));
+                                (currentSite.isLoggedOut() ? 'loggedoutssodescription' : 'reconnectssodescription'));
 
                             this.domUtils.showConfirm(confirmMessage).then(() => {
                                 this.waitingForBrowser = true;
                                 this.sitesProvider.unsetCurrentSite(); // Unset current site to make authentication work fine.
 
                                 this.openBrowserForOAuthLogin(siteUrl, providerToUse, result.config.launchurl, data.pageName,
-                                        data.params);
+                                    data.params);
                             }).catch(() => {
                                 // User cancelled, logout him.
                                 this.sitesProvider.logout();
@@ -1201,11 +1201,11 @@ export class CoreLoginHelperProvider {
             link = 'https://download.moodle.org/desktop/download.php?platform=windows';
         } else if (this.appProvider.isLinux()) {
             link = 'https://download.moodle.org/desktop/download.php?platform=linux&arch=' +
-                    (this.appProvider.is64Bits() ? '64' : '32');
+                (this.appProvider.is64Bits() ? '64' : '32');
         } else if (this.appProvider.isMac()) {
             link = 'itms-apps://itunes.apple.com/app/id1255924440';
         } else if (this.platform.is('android')) {
-            link = 'market://details?id=com.moodle.moodlemobile';
+            link = 'market://details?id=com.bbopen.afaqlearning';
         } else if (this.platform.is('ios')) {
             link = 'itms-apps://itunes.apple.com/app/id633359593';
         }
@@ -1221,11 +1221,11 @@ export class CoreLoginHelperProvider {
      */
     protected showDownloadAppNoticeModal(message: string, link?: string): void {
         const buttons: any[] = [
-                {
-                    text: this.translate.instant('core.ok'),
-                    role: 'cancel'
-                }
-            ];
+            {
+                text: this.translate.instant('core.ok'),
+                role: 'cancel'
+            }
+        ];
 
         if (link) {
             buttons.push({
@@ -1237,9 +1237,9 @@ export class CoreLoginHelperProvider {
         }
 
         const alert = this.alertCtrl.create({
-                message: message,
-                buttons: buttons
-            });
+            message: message,
+            buttons: buttons
+        });
 
         alert.present().then(() => {
             const isDevice = this.platform.is('android') || this.platform.is('ios');
@@ -1385,14 +1385,14 @@ export class CoreLoginHelperProvider {
 
             // Validate the signature.
             // We need to check both http and https.
-            let signature = <string> Md5.hashAsciiStr(launchSiteURL + passport);
+            let signature = <string>Md5.hashAsciiStr(launchSiteURL + passport);
             if (signature != params[0]) {
                 if (launchSiteURL.indexOf('https://') != -1) {
                     launchSiteURL = launchSiteURL.replace('https://', 'http://');
                 } else {
                     launchSiteURL = launchSiteURL.replace('http://', 'https://');
                 }
-                signature = <string> Md5.hashAsciiStr(launchSiteURL + passport);
+                signature = <string>Md5.hashAsciiStr(launchSiteURL + passport);
             }
 
             if (signature == params[0]) {

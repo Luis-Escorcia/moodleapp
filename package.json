@@ -1,7 +1,7 @@
 {
-  "name": "moodlemobile",
+  "name": "afaqearning",
   "version": "3.8.2",
-  "description": "The official app for Moodle.",
+  "description": "eCourses at your fingertips!",
   "author": {
     "name": "Moodle Pty Ltd.",
     "email": "mobile@moodle.com"
@@ -80,7 +80,7 @@
     "cordova-android": "8.1.0",
     "cordova-android-support-gradle-release": "3.0.1",
     "cordova-clipboard": "1.3.0",
-    "cordova-ios": "5.1.1",
+    "cordova-ios": "^5.1.1",
     "cordova-plugin-badge": "0.8.8",
     "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-customurlscheme": "5.0.0",

@@ -71,4 +71,16 @@ ion-app.app-root page-core-login-site {
     .item-input {
         margin-bottom: 20px;
     }
+
+    //Custom Open LMS
+    //Custom Style for login general buttons
+    .button-md.button-default-md, .button-ios.button-default-ios {
+        border-radius: 20px;
+    }
+
+    //Remove site url from login
+    .core-sitename, .core-siteurl {
+        display: none;
+    }
+
 }
