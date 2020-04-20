@@ -1,7 +1,7 @@
 {
-  "name": "moodlemobile",
+  "name": "psaulearn",
   "version": "3.8.2",
-  "description": "The official app for Moodle.",
+  "description": "The official app for PSAU Learn.",
   "author": {
     "name": "Moodle Pty Ltd.",
     "email": "mobile@moodle.com"
@@ -80,7 +80,7 @@
     "cordova-android": "8.1.0",
     "cordova-android-support-gradle-release": "3.0.1",
     "cordova-clipboard": "1.3.0",
-    "cordova-ios": "5.1.1",
+    "cordova-ios": "^5.1.1",
     "cordova-plugin-badge": "0.8.8",
     "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-customurlscheme": "5.0.0",
@@ -160,7 +160,7 @@
       "cordova-plugin-badge": {},
       "cordova-plugin-camera": {},
       "cordova-plugin-customurlscheme": {
-        "URL_SCHEME": "moodlemobile"
+        "URL_SCHEME": "psaulearn"
       },
       "cordova-plugin-device": {},
       "cordova-plugin-file": {},
@@ -214,7 +214,7 @@
       {
         "name": "Moodle Mobile URL",
         "schemes": [
-          "moodlemobile"
+          "psaulearn"
         ],
         "role": "Viewer"
       }
