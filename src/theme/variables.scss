@@ -33,6 +33,8 @@ $purple:          #8e24aa; // Accent (never text).
 
 //Custom Color.
 $open-color:      #4776BD;
+$open-secondary:      #3c3c3b;
+$open-link:           #f9b233;
 
 // Branded apps customization
 // --------------------------------------------------
@@ -80,7 +82,7 @@ $content-padding: 10px;
 // The "primary" color is the only required color in the map.
 
 $primary: $core-color !default;
-$secondary: $turquoise !default;
+$secondary: $open-secondary !default;
 $danger: $red !default;
 $light: $gray-lighter !default;
 $color-gray: $gray-dark !default;
@@ -133,7 +135,7 @@ $colors-dark: (
 );
 
 $text-color:                 $black !default;
-$link-color:                 $blue !default;
+$link-color:                 $open-link !default;
 $background-color:           $gray-light !default;
 $subdued-text-color:         $gray-darker !default;
 

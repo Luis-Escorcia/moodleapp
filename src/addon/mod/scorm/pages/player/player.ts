@@ -66,10 +66,10 @@ export class AddonModScormPlayerPage implements OnInit, OnDestroy {
     protected goOfflineObserver: any;
 
     constructor(navParams: NavParams, protected modalCtrl: ModalController, protected eventsProvider: CoreEventsProvider,
-            protected sitesProvider: CoreSitesProvider, protected syncProvider: CoreSyncProvider,
-            protected domUtils: CoreDomUtilsProvider, protected timeUtils: CoreTimeUtilsProvider,
-            protected scormProvider: AddonModScormProvider, protected scormHelper: AddonModScormHelperProvider,
-            protected scormSyncProvider: AddonModScormSyncProvider, protected tabs: CoreIonTabsComponent) {
+        protected sitesProvider: CoreSitesProvider, protected syncProvider: CoreSyncProvider,
+        protected domUtils: CoreDomUtilsProvider, protected timeUtils: CoreTimeUtilsProvider,
+        protected scormProvider: AddonModScormProvider, protected scormHelper: AddonModScormHelperProvider,
+        protected scormSyncProvider: AddonModScormSyncProvider, protected tabs: CoreIonTabsComponent) {
 
         this.scorm = navParams.get('scorm') || {};
         this.mode = navParams.get('mode') || AddonModScormProvider.MODENORMAL;
@@ -237,9 +237,9 @@ export class AddonModScormPlayerPage implements OnInit, OnDestroy {
 
                     promises.push(this.fetchToc());
                     promises.push(this.scormProvider.getScormUserData(this.scorm.id, this.attempt, undefined, this.offline)
-                            .then((data) => {
-                        this.userData = data;
-                    }));
+                        .then((data) => {
+                            this.userData = data;
+                        }));
                     // Get access information.
                     promises.push(this.scormProvider.getAccessInformation(this.scorm.id).then((accessInfo) => {
                         this.accessInfo = accessInfo;
@@ -290,15 +290,15 @@ export class AddonModScormPlayerPage implements OnInit, OnDestroy {
                 if (!this.currentSco) {
                     // No SCO defined. Get the first valid one.
                     return this.scormHelper.getFirstSco(this.scorm.id, this.attempt, this.toc, this.organizationId, this.mode,
-                            this.offline).then((sco) => {
+                        this.offline).then((sco) => {
 
-                        if (sco) {
-                            this.currentSco = sco;
-                        } else {
-                            // We couldn't find a SCO to load: they're all inactive or without launch URL.
-                            this.errorMessage = 'addon.mod_scorm.errornovalidsco';
-                        }
-                    });
+                            if (sco) {
+                                this.currentSco = sco;
+                            } else {
+                                // We couldn't find a SCO to load: they're all inactive or without launch URL.
+                                this.errorMessage = 'addon.mod_scorm.errornovalidsco';
+                            }
+                        });
                 }
             }
         }).finally(() => {
@@ -323,10 +323,10 @@ export class AddonModScormPlayerPage implements OnInit, OnDestroy {
         if (!this.dataModel) {
             // Create the model.
             this.dataModel = new AddonModScormDataModel12(this.eventsProvider, this.scormProvider, this.siteId, this.scorm, sco.id,
-                    this.attempt, this.userData, this.mode, this.offline);
+                this.attempt, this.userData, this.mode, this.offline);
 
             // Add the model to the window so the SCORM can access it.
-            (<any> window).API = this.dataModel;
+            (<any>window).API = this.dataModel;
         } else {
             // Load the SCO in the existing model.
             this.dataModel.loadSco(sco.id);
@@ -401,11 +401,13 @@ export class AddonModScormPlayerPage implements OnInit, OnDestroy {
             moduleId: this.scorm.coursemodule,
             courseId: this.scorm.course,
             accessInfo: this.accessInfo
-        }, { cssClass: 'core-modal-lateral',
+        }, {
+            cssClass: 'core-modal-lateral',
             showBackdrop: true,
             enableBackdropDismiss: true,
             enterAnimation: 'core-modal-lateral-transition',
-            leaveAnimation: 'core-modal-lateral-transition' });
+            leaveAnimation: 'core-modal-lateral-transition'
+        });
 
         // If the modal sends back a SCO, load it.
         modal.onDidDismiss((sco) => {
