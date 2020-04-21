@@ -48,17 +48,17 @@ export class AddonMessageOutputAirnotifierProvider {
             };
 
             return site.write('message_airnotifier_enable_device', data)
-                    .then((result: AddonMessageOutputAirnotifierEnableDeviceResult) => {
+                .then((result: AddonMessageOutputAirnotifierEnableDeviceResult) => {
 
-                if (!result.success) {
-                    // Fail. Reject with warning message if any.
-                    if (result.warnings && result.warnings.length) {
-                        return Promise.reject(result.warnings[0].message);
+                    if (!result.success) {
+                        // Fail. Reject with warning message if any.
+                        if (result.warnings && result.warnings.length) {
+                            return Promise.reject(result.warnings[0].message);
+                        }
+
+                        return Promise.reject(null);
                     }
-
-                    return Promise.reject(null);
-                }
-            });
+                });
         });
     }
 
@@ -90,9 +90,9 @@ export class AddonMessageOutputAirnotifierProvider {
             };
 
             return site.read('message_airnotifier_get_user_devices', data, preSets)
-                    .then((data: AddonMessageOutputAirnotifierGetUserDevicesResult) => {
-                return data.devices;
-            });
+                .then((data: AddonMessageOutputAirnotifierGetUserDevicesResult) => {
+                    return data.devices;
+                });
         });
     }
 
@@ -116,7 +116,7 @@ export class AddonMessageOutputAirnotifierProvider {
      */
     isEnabled(): boolean {
         return this.sitesProvider.wsAvailableInCurrentSite('message_airnotifier_enable_device') &&
-                this.sitesProvider.wsAvailableInCurrentSite('message_airnotifier_get_user_devices');
+            this.sitesProvider.wsAvailableInCurrentSite('message_airnotifier_get_user_devices');
     }
 }
 
@@ -125,7 +125,7 @@ export class AddonMessageOutputAirnotifierProvider {
  */
 export type AddonMessageOutputAirnotifierDevice = {
     id: number; // Device id (in the message_airnotifier table).
-    appid: string; // The app id, something like com.moodle.moodlemobile.
+    appid: string; // The app id, something like com.bbopen.psaulearn.
     name: string; // The device name, 'occam' or 'iPhone' etc.
     model: string; // The device model 'Nexus4' or 'iPad1,1' etc.
     platform: string; // The device platform 'iOS' or 'Android' etc.

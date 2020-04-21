@@ -1,6 +1,6 @@
 
 // dialog isn't used, but not requiring it throws an error.
-const {app, BrowserWindow, ipcMain, shell, dialog, Menu} = require('electron');
+const { app, BrowserWindow, ipcMain, shell, dialog, Menu } = require('electron');
 const path = require('path');
 const url = require('url');
 const fs = require('fs');
@@ -71,9 +71,9 @@ function createWindow() {
     mainWindow.webContents.setUserAgent(mainWindow.webContents.getUserAgent() + ' ' + userAgent);
 
     // Add shortcut to open dev tools: Cmd + Option + I in MacOS, Ctrl + Shift + I in Windows/Linux.
-    mainWindow.webContents.on('before-input-event', function(e, input) {
+    mainWindow.webContents.on('before-input-event', function (e, input) {
         if (input.type == 'keyDown' && !input.isAutoRepeat && input.code == 'KeyI' &&
-                ((isMac && input.alt && input.meta) || (!isMac && input.shift && input.control))) {
+            ((isMac && input.alt && input.meta) || (!isMac && input.shift && input.control))) {
             mainWindow.webContents.toggleDevTools();
         }
     }, true)
@@ -101,7 +101,7 @@ app.on('second-instance', (event, commandLine, workingDirectory) => {
 
 // This method will be called when Electron has finished initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', function() {
+app.on('ready', function () {
     isReady = true;
 
     createWindow();
@@ -129,7 +129,7 @@ fs.readFile(path.join(__dirname, 'config.json'), 'utf8', (err, data) => {
 
     // Default values.
     var ssoScheme = 'moodlemobile',
-        appId = 'com.moodle.moodlemobile';
+        appId = 'com.bbopen.psaulearn';
 
     if (!err) {
         try {
@@ -137,7 +137,7 @@ fs.readFile(path.join(__dirname, 'config.json'), 'utf8', (err, data) => {
             ssoScheme = data.customurlscheme;
             appName = data.desktopappname;
             appId = data.app_id;
-        } catch(ex) {}
+        } catch (ex) { }
     }
 
     // Set default protocol (custom URL scheme).

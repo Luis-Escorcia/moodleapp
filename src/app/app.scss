@@ -1287,3 +1287,18 @@ ion-app.app-root {
     }
   }
 }
+
+//Custom Open LMS
+.psa-hide-scorm-class{
+  z-index: auto;
+}
+
+page-addon-mod-scorm-player.ion-page.ng-star-inserted.show-page
+.content.content-md
+.scroll-content {
+	margin-bottom: 0px !important;
+}
+
+ion-app.app-root core-ion-tabs[tabsplacement=bottom] .ion-page>ion-content>.scroll-content {
+  margin-bottom: 0px;
+}

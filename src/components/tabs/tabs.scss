@@ -1,3 +1,10 @@
+//Custom Open LMS
+ion-app.app-root .tabbar.show-tabbar a.tab-button ion-icon.tab-button-icon{
+    &[ng-reflect-is-active=true] {
+        color: $white;
+    }
+}
+
 ion-app.app-root .core-tabs-bar {
     @include position(null, null, null, 0);
     position: relative;
@@ -38,7 +45,11 @@ ion-app.app-root .core-tabs-bar {
 
         &[aria-selected=true] {
             color: $core-top-tabs-color-active !important;
-            border-bottom-color: $core-top-tabs-border-active !important;
+            border-bottom-color: #ffb12d !important;
+            
+            //Open LMS Custom
+		    border-bottom-width: 4px !important;
+
         }
 
         .slide-zoom {
@@ -154,3 +165,4 @@ ion-app.app-root.ios, ion-app.app-root.md {
         height: 100% !important;
     }
 }
+

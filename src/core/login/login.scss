@@ -72,3 +72,17 @@ ion-app.app-root page-core-login-site {
         margin-bottom: 20px;
     }
 }
+
+    //Custom Style for login general buttons
+    .button-md.button-default-md, .button-ios.button-default-ios {
+        border-radius: 20px;
+    }
+    //login button
+    .core-login-form .button-md.button-default-md, .button-ios.button-default-ios {
+        background-color: #ffb12d;
+    }
+
+    //Remove site url from login
+    .core-sitename, .core-siteurl {
+        display: none;
+    }
