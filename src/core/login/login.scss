@@ -2,7 +2,10 @@ ion-app.app-root page-core-login-credentials,
 ion-app.app-root page-core-login-reconnect,
 ion-app.app-root page-core-login-site {
     .scroll-content {
-        background: $core-login-page-background-color;
+        //background: $core-login-page-background-color;
+
+        //Custom Open LMS
+        background: #202020;
 
         @include darkmode() {
             background: $core-dark-login-page-background-color;
@@ -22,8 +25,11 @@ ion-app.app-root page-core-login-site {
         padding: 16px;
         margin: 8px;
         background: $core-login-box-background-color;
-        border: 1px solid $core-login-box-background-border;
+        //border: 1px solid $core-login-box-background-border;
         color: $core-login-box-text-color;
+
+        //Custom Open LMS
+        border: 1px solid $black;
 
         @include darkmode() {
             background: $core-dark-login-box-background-color;
@@ -94,6 +100,16 @@ ion-app.app-root page-core-login-site {
     //Remove site url from login
     .core-sitename, .core-siteurl {
         display: none;
+    }
+
+    //turururururu
+    //Cuadro fondo login
+    .core-loading-content .box.ng-star-inserted {
+        background-color: #1f1f1f;
+    }
+
+    .item.item-block.item-md.item-input.ng-star-inserted {
+        background-color: #e3e3e3;
     }
 
 }
