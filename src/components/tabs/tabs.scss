@@ -38,7 +38,12 @@ ion-app.app-root .core-tabs-bar {
 
         &[aria-selected=true] {
             color: $core-top-tabs-color-active !important;
-            border-bottom-color: $core-top-tabs-border-active !important;
+            //border-bottom-color: $core-top-tabs-border-active !important;
+
+            //Open LMS Custom
+            border-bottom-width: 4px !important;
+            border-bottom-color: $black !important;
+            //End Custom
         }
 
         .slide-zoom {
@@ -154,3 +159,14 @@ ion-app.app-root.ios, ion-app.app-root.md {
         height: 100% !important;
     }
 }
+
+//Custom Open LMS
+core-ion-tabs.tabs .tab-button.has-title.has-icon ion-icon.tab-button-icon.icon{
+    &[ng-reflect-is-active=true] {
+        color: $white;
+    }
+    &[ng-reflect-is-active=false] {
+        color: $gray-dark;
+    }
+}
+//End Custom

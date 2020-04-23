@@ -71,4 +71,27 @@ ion-app.app-root page-core-login-site {
     .item-input {
         margin-bottom: 20px;
     }
+
+    //Custom Open LMS
+
+    //Remove site url from login
+    .core-sitename, .core-siteurl {
+        display: none;
+    }
+
+    //Custom Style for login general buttons
+    .button-md.button-default-md, .button-ios.button-default-ios {
+        border-radius: 20px;
+    }
+    
+    //login button
+    .core-login-form .button-md.button-default-md, .button-ios.button-default-ios {
+    background-color: #E9BB49 !important;
+    color: $black;
+    }
+    //forget button
+    .core-login-forgotten-password .button-md.button-default-md, .button-ios.button-default-ios{
+        background-color:  #e4e4e4;;
+        color: $black;
+    }
 }
